@@ -1,0 +1,108 @@
+hr {
+    border: none;
+    /* Убираем границу для браузера Firefox */
+    color: rgb(45, 46, 45);
+    /* Цвет линии для остальных браузеров */
+    background-color: rgb(45, 46, 45);
+    /* Цвет линии для браузера Firefox и Opera */
+    height: 1px;
+    /* Толщина линии */
+    border: 0;
+    height: 1px;
+    background-image: -webkit-linear-gradient(left, rgba(53, 53, 53, 0), rgba(36, 36, 36, 0.75), rgba(53, 53, 53, 0));
+    background-image: -moz-linear-gradient(left, rgba(53, 53, 53, 53), rgba(36, 36, 36, 0.75), rgba(53, 53, 53, 53));
+    background-image: -ms-linear-gradient(left, rgba(53, 53, 53, 53), rgba(36, 36, 36, 0.75), rgba(53, 53, 53, 53));
+    background-image: -o-linear-gradient(left, rgba(53, 53, 53, 53), rgba(36, 36, 36, 0.75), rgba(53, 53, 53, 53));
+}
+
+.card-title {
+    text-align: center;
+}
+
+.form-control {
+    margin-bottom: 5%;
+    background-color: #363636;
+    color: #c0c0c0;
+    border: none;
+}
+
+.form-control:focus {
+    box-shadow: 0 0 10px 0 #038803;
+    transition: 0.5s;
+    background-color: #363636;
+    border: none;
+}
+
+.modal-content {
+    background: #232223;
+    margin-top: 17%;
+}
+
+h5 {
+    font-size: 1rem;
+}
+
+.card {
+    justify-content: center;
+}
+
+img {
+    max-width: auto;
+    height: auto;
+    display: block;
+}
+
+.buttons a {
+    margin: 0.5%;
+}
+
+.linedetails__container {
+    margin: 2%;
+    margin-bottom: 4%;
+    padding-top: 6%;
+}
+/* mobile */
+@media screen and (min-width: 996px) {
+    /* desktop */
+
+    body {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .linedetails__container {
+        display: flex;
+        flex-direction: column;
+        margin: 2%;
+        margin-bottom: 4%;
+        margin-top: 4%;
+        padding: 0%;
+        width: 40%;
+    }
+    hr {
+        border: none;
+        /* Убираем границу для браузера Firefox */
+        color: rgb(45, 46, 45);
+        /* Цвет линии для остальных браузеров */
+        background-color: rgb(45, 46, 45);
+        /* Цвет линии для браузера Firefox и Opera */
+        height: 1px;
+        /* Толщина линии */
+        border: 0;
+        height: 1px;
+        background-image: -webkit-linear-gradient(left, rgba(53, 53, 53, 0), rgba(36, 36, 36, 0.75), rgba(53, 53, 53, 0));
+        background-image: -moz-linear-gradient(left, rgba(53, 53, 53, 53), rgba(36, 36, 36, 0.75), rgba(53, 53, 53, 53));
+        background-image: -ms-linear-gradient(left, rgba(53, 53, 53, 53), rgba(36, 36, 36, 0.75), rgba(53, 53, 53, 53));
+        background-image: -o-linear-gradient(left, rgba(53, 53, 53, 53), rgba(36, 36, 36, 0.75), rgba(53, 53, 53, 53));
+    }
+
+    .card {
+        justify-content: center;
+    }
+
+    .buttons a {
+        margin: 0.5%;
+        padding-top: 2%;
+        vertical-align: center;
+    }
+}

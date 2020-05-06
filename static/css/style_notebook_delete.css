@@ -1,0 +1,29 @@
+.container {
+    padding-top: 17%;
+    margin-left: 1.8%;
+}
+
+h3 {
+    font-size: 1.2rem;
+}
+
+.btn {
+    margin: 1%;
+}
+
+@media screen and (min-width: 996px) {
+
+    .container {
+        padding-top: 2%;
+        margin-left: 1.8%;
+    }
+
+    h3 {
+        font-size: 1.2rem;
+    }
+
+    .btn {
+        margin: 1%;
+    }
+
+}

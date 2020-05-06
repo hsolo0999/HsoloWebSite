@@ -1,0 +1,29 @@
+.createline__container h2 {
+    margin-bottom: 5%;
+}
+
+.form-control {
+    margin-bottom: 5%;
+}
+
+.nav-link {
+    margin-top: 0;
+}
+
+h2 {
+    font-size: 1.2rem;
+}
+
+@media screen and (min-width: 996px) {
+
+    .createline__container {
+        margin: 2%;
+        margin-top: 2%;
+        padding: 0%;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+}

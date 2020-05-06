@@ -1,0 +1,123 @@
+{% extends 'parserapp/parserapp_base.html' %}
+{% load static %}
+
+{% block title_content %}
+
+Парсер | {{ block.super }}
+
+{% endblock %}
+
+{% block h1_content %}
+
+
+{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" type="text/css" href="{% static 'css/style_parserapp_res.css' %}">
+
+
+<div class="form_wrapper">
+    <div class="modal fade" id="staticBackdrop" data-backdrop="static" tabindex="-1" role="dialog"
+        aria-labelledby="staticBackdropLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content" style=>
+                <div class="modal-header">
+                    <h5 class="modal-title" id="staticBackdropLabel" style="font-size: 1.2rem;">Настройки запроса</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <!--  -->
+                    <div class="form-group">
+                        <form action="{% url 'pr_result_resumes_url' %}" enctype="multipart/form-data" method="POST"
+                            id="settings_form">
+                            <div class="inputs_wrapper">
+                                {% csrf_token %}
+                                {% for f in form %}
+                                {{ f.label }}
+                                {{ f }}
+                                {% endfor %}
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-dark" data-dismiss="modal">Назад</button>
+                    <button form="settings_form" class="btn btn-dark" type="submit">Применить</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="table_wrapper">
+    <div class="button_wrapper">
+        <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#staticBackdrop">
+            Настроить
+        </button>
+        <a class="btn btn-info" href="{% url 'pr_refreshdb_resumes_url' %}" role="button">Обновить базу</a>
+        
+    </div>
+    <p>ВАКАНСИЙ:     {{ vacancies }} <br> РЕЗЮМЕ:     {{ resumes }} <br> URL:     {{ pasettings.url_base }} <br> ЗАПРОС:   {{ pasettings.query }} <br> СТРАНИЦА:    {{ pasettings.page}} <br> ПОКАЗАНО ВАКАНСИЙ: {{ pasettings.show_resumes }} <br> В РЕГИОНЕ:    {{ pasettings.region }}</p>
+    <table class="table table-hover table-dark">
+        <thead>
+            <tr>
+                <th scope="col">№</th>
+                <th scope="col">Заголовок</th>
+                <th scope="col">Опыт</th>
+                <th scope="col">Образование</th>
+                <th scope="col">Когда был</th>
+                <th scope="col" style="text-align: center">Инфо</th>
+            </tr>
+        </thead>
+
+
+        <tbody>
+            {% for item in page_object.object_list %}
+            <tr>
+                <th>{{ item.number }}</th>
+                <td><a href="{{ item.url }}" target="_blank">{{ item.title|truncatechars:40 }}</a></td>
+                <td>{{ item.exp|truncatechars:30 }}</td>
+                <td>{{ item.educate|truncatechars:20 }}</td>
+                <td>{{ item.refresh }}</td>
+                <td style="text-align: center" {% if item.status == 'В/О' %} class="bg-danger"
+                    {% elif item.compensation == '-' %} class="bg-warning" {% else %} class="bg-success" {% endif %}>
+                    {% if item.status == 'В/О' %}
+                    😠</td>
+                {% elif item.compensation == '-' %}
+                🤔</td>
+                {% else %}
+                👍</td>
+                {% endif %}
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% if is_paginated %}
+<ul class="pagination">
+    <li class="page-item {% if not prev_url %} disabled {% endif %}">
+        <a class="page-link bg-dark text-white border border-dark" href="{{ prev_url }}" tabindex="-1">&laquo;</a>
+    </li>
+    {% for page_num in page_object.paginator.page_range %}
+    {% if page_object.number == page_num %}
+    <li class="page-item active" aria-current="page">
+        <a class="page-link bg-dark text-white border border-dark" href="?page={{ page_num }}">{{ page_num }} <span
+                class="sr-only">(current)</span></a>
+    </li>
+    {% elif page_num > page_object.number|add:-3 and page_num < page_object.number|add:3 %}
+    <li class="page-item" aria-current="page">
+        <a class="page-link bg-dark text-white border border-dark" href="?page={{ page_num }}">{{ page_num }} <span
+                class="sr-only">(current)</span></a>
+    </li>
+    {% endif %}
+    {% endfor %}
+    <li class="page-item {% if not next_url %} disabled {% endif %}">
+        <a class="page-link bg-dark text-white border border-dark" href="{{ next_url }}">&raquo;</a>
+    </li>
+</ul>
+{% endif %}
+
+{% endblock %}

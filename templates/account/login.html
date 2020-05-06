@@ -1,0 +1,73 @@
+{% extends "account/base.html" %}
+{% load static %}
+
+{% load i18n %}
+{% load account socialaccount %}
+
+{% block head_title %}Вход{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/style_webapp_login.css' %}">
+<link rel="stylesheet" href="{% static 'css/font-awesome.css' %}">
+
+
+{% get_providers as socialaccount_providers %}
+
+{% if socialaccount_providers %}
+<p>{% blocktrans with site.name as site_name %}Please sign in with one
+  of your existing third party accounts. Or, <a href="{{ signup_url }}">зарегистрируйтесь</a>
+  for a {{ site_name }} account and sign in below:{% endblocktrans %}</p>
+
+<div class="socialaccount_ballot">
+
+  <ul class="socialaccount_providers">
+    {% include "socialaccount/snippets/provider_list.html" with process="login" %}
+  </ul>
+
+  <div class="login-or">{% trans 'or' %}</div>
+
+</div>
+
+{% include "socialaccount/snippets/login_extra.html" %}
+
+{% else %}
+
+{% endif %}
+
+
+<div class="container">
+
+  <form class="login" method="POST" action="{% url 'account_login' %}">
+    {% csrf_token %}
+    <div class="form_wrapper">
+      <h4>Авторизация на сайте</h4>
+      <div class="dws-input">
+        {{ form.as_p }}
+      </div>
+      <a class="btn btn-success" href="{% url 'app_start' %}">Назад</a>
+      <button class="btn btn-success" type="submit">Войти</button>
+
+
+
+
+      {% if redirect_field_value %}
+      <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+      {% endif %}
+
+  </form>
+  <!--
+  <div class="dws-social">
+      <i class="fa fa-vk" aria-hidden="true"></i>
+      <i class="fa fa-twitter" aria-hidden="true"></i>
+      <i class="fa fa-facebook" aria-hidden="true"></i>
+      <i class="fa fa-google-plus-official" aria-hidden="true"></i>
+      <i class="fa fa-odnoklassniki" aria-hidden="true"></i>
+    </div>
+  -->
+  <a class="secondaryAction" href="{% url 'account_reset_password' %}">Забыли
+    пароль?</a>
+</div>
+
+</div>
+
+{% endblock %}

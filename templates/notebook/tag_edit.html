@@ -1,0 +1,60 @@
+{% extends 'notebook/notebook_base.html' %}
+
+{% block title_content %}
+
+Изменить тег "{{ nbtag.title | title }}" | {{ block.super }}
+
+{% endblock %}
+
+{% block h1_content %}
+<div class="creattag__container">
+    <div class="col-sm-4">
+
+        <h2>Изменить тег <br> "{{ nbtag.title | title }}"</h2>
+
+        {% endblock %}
+
+        {% block content %}
+
+        <form action="{{ nbtag.get_edit_url }}" method="POST">
+            {% csrf_token %}
+
+            {% for f in form %}
+                    {% if f.errors %}
+                        <div class="alert alert-danger" role="alert">{{ f.errors }}</div>
+                    {% endif %}
+                {{ f.label }}
+                {{ f}}
+            {% endfor %}
+            
+            <button class="btn btn-dark btn-sm" type="submit">Изменить</button>
+        </form>
+    </div>
+</div>
+
+<style>
+    .creattag__container h2 {
+        margin-bottom: 5%;
+    }
+
+    .form-control {
+        margin-bottom: 5%;
+    }
+
+    .btn {
+        margin-top: 5%;
+
+    }
+
+    @media screen and (min-width: 996px) {
+
+        .creattag__container {
+            margin: 2%;
+            margin-top: 4%;
+            padding: 0%;
+        }
+
+    }
+</style>
+
+{% endblock %}

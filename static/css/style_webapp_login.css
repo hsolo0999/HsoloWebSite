@@ -1,0 +1,130 @@
+body {
+	background: rgba(35, 34, 35, 1);
+	color: rgb(173, 173, 173);
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.secondaryAction {
+display: block;
+margin-top: 5%;
+}
+
+h4 {
+	margin-bottom: 5%;
+}
+
+a {
+	color: #fff;
+}
+
+a:hover {
+	text-decoration: none;
+	color: #038803;
+}
+
+.container {
+	background-color: rgba(47, 48, 49, 0.7);
+	border: 2px solid rgba(105, 105, 105, 0.7);
+	margin: 5% auto 0 auto;
+	width: 80%;
+	text-align: center;
+	box-shadow: 0 -5px 0 #025e02;
+	padding-bottom: 20px;
+	padding-left: 2%;
+	padding-right: 2%;
+}
+
+.form_wrapper {
+	padding-top: 5%;
+}
+
+input[type="text"], input[type="password"], input[type="email"] {
+	height: 50px;
+	font-size: 1rem;
+	border-radius: 4px;
+	padding-left: 4%;
+	max-width: 90%;
+}
+
+.dws-input input {
+	background-color: #363636;
+	color: #c0c0c0;
+	border: none;
+	max-width: 90%;
+}
+
+.dws-input input:focus {
+	box-shadow: 0 0 10px 0 #038803;
+	transition: 0.5s;
+	background-color: #363636;
+	border: none;
+	
+}
+
+.dws-social i {
+	color: #fff;
+	font-size: 20px;
+	width: 20px;
+	padding: 10px;
+}
+
+.dws-social i:hover {
+	background-color: #fff;
+	color: #038803;
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.dws-input {
+	display: flex;
+	justify-content: center;
+	flex-direction: column;
+}
+
+.container img {
+	height: 50px;
+	margin-bottom: 25px;
+	border-radius: 4px;
+	max-width: 40%;
+}
+
+label {
+	display: none;
+}
+
+/* mobile */
+@media screen and (min-width: 996px) {
+	/* desc */
+	.container {
+		background-color: rgba(47, 48, 49, 0.7);
+		border: 2px solid rgba(105, 105, 105, 0.7);
+		margin: 50px auto 0 auto;
+		text-align: center;
+		box-shadow: 0 -5px 0 #025e02;
+		padding-bottom: 20px;
+	}
+
+	.dws-input {
+		display: inherit;
+		justify-content: inherit;
+		flex-direction: inherit;
+	}
+	
+	.container img {
+		height: 50px;
+		margin-bottom: 0;
+		border-radius: 4px;
+		max-width: inherit;
+	}
+
+	#id_captcha_1 {
+		max-width: 50%;
+	}
+
+	.container {
+		max-width: 30%;
+	}
+
+
+
+	}

@@ -1,0 +1,46 @@
+{% extends "account/base.html" %}
+{% load static %}
+
+{% load i18n %}
+{% load account socialaccount %}
+
+{% block head_title %}Регистрация{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/style_webapp_register.css' %}">
+<link rel="stylesheet" href="{% static 'css/font-awesome.css' %}">
+
+<div class="container">
+
+  <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
+    {% csrf_token %}
+    <div class="form_wrapper">
+      <h4>Создание пользователя</h4>
+      <div class="inputs_wrapper">
+        <div class="dws-input">
+          {{ form.as_p }}
+        </div>
+      </div>
+      {% if redirect_field_value %}
+      <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+      {% endif %}
+      <a class="btn btn-success" href="{% url 'app_start' %}">Назад</a>
+      <button class="btn btn-success" type="submit">Принять</button>
+
+
+      <style>
+        label {
+          display: none;
+        }
+      </style>
+
+
+
+
+  </form>
+  <p class="secondaryAction">Уже есть аккаунт? <a href="{{ login_url }}">Войти</a>.</p>
+</div>
+
+</div>
+
+{% endblock %}

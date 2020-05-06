@@ -1,0 +1,54 @@
+{% extends 'notebook/notebook_base.html' %}
+{% load static %}
+
+{% block title_content %}
+
+Редактирование записи "{{ nbline.head | title }}" | {{ block.super }}
+
+{% endblock %}
+
+{% block h1_content %}
+<link rel="stylesheet" href="{% static 'css/style_notebook_edit.css' %}">
+
+<div class="createline__container">
+    <div class="col-sm-4">
+
+        <h2 style="font-size: 1.2rem;">Редактировать запись <br> "{{ nbline.head | title }}"</h2>
+
+        {% endblock %}
+
+        {% block content %}
+
+        <form action="{{ nbline.get_edit_url }}" enctype="multipart/form-data" method="POST">
+            {% csrf_token %}
+
+            {% for f in form %}
+                    {% if f.errors %}
+                        <div class="alert alert-danger" role="alert">{{ f.errors }}</div>
+                    {% endif %}
+                {{ f.label }}
+                {{ f }}
+            {% endfor %}
+            
+            <button class="btn btn-dark btn-sm" type="submit" name="btn_all">Применить</button>
+        </form>
+    </div>
+</div>
+
+<style>
+        .form-control {
+            margin-bottom: 5%;
+            background-color: #363636;
+            border: none;
+        }
+    
+        .form-control:focus {
+            box-shadow: 0 0 10px 0 #038803;
+            transition: 0.5s;
+            color: #c0c0c0;
+            background-color: #363636;
+            border: none;
+        }
+    </style>
+
+{% endblock %}

@@ -1,0 +1,26 @@
+    .createline__container h2 {
+        margin-bottom: 5%;
+    }
+
+    .form-control {
+        margin-bottom: 5%;
+        background-color: #363636;
+        color: #c0c0c0;
+        border: none;
+    }
+
+    .form-control:focus {
+        box-shadow: 0 0 10px 0 #038803;
+        transition: 0.5s;
+        background-color: #363636;
+        border: none;
+    }
+
+    @media screen and (min-width: 996px) {
+
+        .createline__container {
+            margin: 2%;
+            margin-top: 4%;
+            padding: 0%;
+        }
+    }

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block title_content %}
+
+Страница не существует
+
+{% endblock %}
+
+{% block h1_content %}
+
+Не могу достучаться до этой страницы :(
+
+{% endblock %}
+
+{% block content %}
+
+Вернёмся на стартовую странцу?
+
+<a href="{{ url_for('notebook.index') }}">Да, пожалуй ...</a>
+
+{% endblock %}

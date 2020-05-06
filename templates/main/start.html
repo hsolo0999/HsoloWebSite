@@ -1,0 +1,28 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title_content %}
+
+Сайт hsolo0999 | {{ block.super }}
+
+{% endblock %}
+
+{% block h1_content %}
+
+{% endblock %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'css/style_webapp_start.css' %}">
+
+<div class="start__content">
+    <h4>HsoloApp</h4>
+    <br><br> Stay <div class="stay_home">😷</div> Home <br><br>
+    <div class="three">😗 😜 🤔 😵<br>😮 😥 😐 😲 😌</div>
+    <div class="one">
+        😔<br>😏 😊<br>😉 😞 😏</div>
+    {% if user.is_authenticated %}
+    <br> <b>{{ user.username }}</b>, независимо от того, настоящее это имя или нет, ты - <b>красава</b> 😉
+    {% endif %}
+</div>
+
+{% endblock %}

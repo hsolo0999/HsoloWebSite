@@ -1,0 +1,53 @@
+.tags__h1 {
+    padding-top: 18%;
+    margin-left: 4.8%;
+}
+
+.tags__content {
+    margin-left: 1.8%;
+}
+
+.tags__content-col {
+    padding-top: 3%;
+}
+
+.tags__content-links {
+    margin-bottom: 1%;
+    display: inline-block;
+    font-size: 1.5rem;
+}
+
+.tags__content-links a {
+    text-decoration: none;
+    text-transform: lowercase;
+    color: rgb(211, 211, 211);
+}
+
+.tags__content-links a:hover {
+    text-shadow: 1px 1px 2px black, 0 0 1em rgb(18, 83, 43)
+}
+
+@media screen and (min-width: 996px) {
+    .tags__h1 a {
+        margin: 0%;
+        margin-top: 2%;
+    }
+    .tags__h1 {
+        padding-top: 2%;
+        margin-left: 2%;
+    }
+    .pagination {
+        margin-top: 4%
+    }
+
+    .tags__content-links {
+        display: inline-block;
+        font-size: 1.5rem;
+    }
+
+    .tags__content-links a {
+        text-decoration: none;
+        text-transform: lowercase;
+        color: rgb(211, 211, 211);
+    }
+}

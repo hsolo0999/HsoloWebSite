@@ -1,0 +1,84 @@
+.table_wrapper {
+    padding-top: 2%;
+    font-size: 1rem;
+}
+
+.inputs_wrapper {
+    max-width: 50%;
+}
+
+.modal-content {
+background: rgba(35, 34, 35, 1);
+color: rgb(173, 173, 173);
+margin-top: 5%;
+}
+
+.form-control{
+    margin-bottom: 5%;
+    color: #c0c0c0;
+    background-color: #363636;
+    border-radius: 5px;
+    border: 1px solid #2e2e2e;
+}
+
+.form-control:focus {
+    box-shadow: 0 0 10px 0 #038803;
+    transition: 0.5s;
+    background-color: #363636;
+    border: none;
+}
+
+.button_wrapper {
+    padding-bottom: 2%;
+    margin-bottom: 2%;
+    display: flex;
+    justify-content: flex-start;
+}
+
+.button_wrapper button {
+    margin-right: 1%;
+    display: flex;
+
+}
+
+tbody a:hover {
+    text-decoration: none;
+    color: #038803;
+}
+
+.pagination {
+    justify-content: center;
+    margin-top: 3%;
+    margin-left: 3%;
+}
+
+/* desktop */
+@media screen and (max-width: 995px) {
+    /* mobile */
+    .table_wrapper {
+        padding-top: 15%;
+        font-size: 0.4rem;
+    }
+
+    .modal-content {
+        margin-top: 10%;
+        }
+
+    .button_wrapper {
+        padding: 2%;
+        max-width: 90%;
+    }
+
+
+    .pagination {
+        font-size: 0.8rem;
+        justify-content: start;
+        margin-top: 3%;
+        margin-left: 4%
+    }
+
+    .btn {
+        font-size: 0.8rem;
+        max-width: 100%;
+    }
+}
