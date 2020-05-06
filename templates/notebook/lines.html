@@ -14,9 +14,7 @@
 {% block content %}
 <link rel="stylesheet" href="{% static 'css/style_notebook_lines.css' %}">
 
-<div class="cards_wrapper">
-
-    <a class="btn btn-dark mt-15 btn-block text-center card" href="{% url 'nb_line_create_url' %}" role="button">Сделать запись {{ emj }}</a>
+<div class="container cards_wrapper">
 
     {% for line in page_object.object_list %}
     <a href="{{ line.get_absolute_url }}">

@@ -1,7 +1,7 @@
 
 
-<center><font size="6"> Hsolo website </font></center>
-[Перейти на сайт](https://hansolo0999.pythonanywhere.com)
+# Hsolo website
+
 
 *****
 
@@ -19,3 +19,5 @@
  * Для аутентификации и авторизации пользователя использована библиотека [django-allauth](https://django-allauth.readthedocs.io/en/latest/index.html).
 
  * Реализовано адаптивное поведение HTML документа с помощью front-end библиотеки компонентов [Bootstrap 4](https://bootstrap-4.ru/).
+
+##### [Перейти на сайт](https://hansolo0999.pythonanywhere.com)
