@@ -8,23 +8,25 @@
 {% block h1_content %}
 <link rel="stylesheet" href="{% static 'css/style_notebook_tags.css' %}">
 
-<div class="tags__h1">
-        <a class="btn btn-dark" href="{% url 'nb_tag_create_url' %}" role="button">Добавить ещё тежочек {{ emj }}</a>
-    </div>
-
 {% endblock %}
 
 
 {% block content %}
 
-<div class="container tags__content">
+<div class="container">
     <div class="row">
-        <div class="col-sm-4 tags__content-col">
+        <div class="col-12">
+            <div class="tags__h1">
+                <a class="btn btn-dark" href="{% url 'nb_tag_create_url' %}" role="button">Добавить ещё тежочек
+                    {{ emj }}</a>
+            </div>
             {% for tag in tags %}
             <div class="tags__content-links">
                 <a href="{{ tag.get_absolute_url }}" class="badge badge-primary"># {{tag.title|title}}</a>
             </div>
             {% endfor %}
         </div>
+    </div>
+</div>
 
-        {% endblock %}
+{% endblock %}

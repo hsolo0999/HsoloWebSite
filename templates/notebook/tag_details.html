@@ -9,70 +9,75 @@
 <link rel="stylesheet" href="{% static 'css/style_notebook_tagdetails.css' %}">
 
 <div class="container">
+    <div class="row">
+        <div class="col-12">
 
-    <h1>Записи с тегом <br> "{{ nbtag.title }}" : </h1>
+                <h1>Записи с тегом <br> "{{ nbtag.title }}" : </h1>
 
-    <div class="create_btn_wrapper">
+                <div class="create_btn_wrapper">
 
-        <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#staticBackdrop">
-            Изменить тег
-        </button>
-        <a class="btn btn-dark" href="{% url 'nb_tag_delete_url' slug=nbtag.slug %}" role="button">Удалить тег</a>
-    </div>
-</div>
-{% endblock %}
+                    <button type="button" class="btn btn-dark" data-toggle="modal" data-target="#staticBackdrop">
+                        Изменить тег
+                    </button>
+                    <a class="btn btn-dark" href="{% url 'nb_tag_delete_url' slug=nbtag.slug %}" role="button">Удалить тег</a>
+                </div>
 
-{% block content %}
+            {% endblock %}
 
-<div class="modal fade" id="staticBackdrop" data-backdrop="static" tabindex="-1" role="dialog"
-    aria-labelledby="staticBackdropLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel" style="font-size: 1.2rem;">Изменить тег <br>
-                    "{{ nbtag.title | title }}"</h5>
+            {% block content %}
 
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form action="{{ nbtag.get_edit_url }}" enctype="multipart/form-data" method="POST" id="edit_form">
-                    {% csrf_token %}
-                    {% for f in form %}
-                    {% if f.errors %}
-                    <div class="alert alert-danger" role="alert">{{ f.errors }}</div>
-                    {% endif %}
-                    {{ f.label }}
-                    {{ f}}
-                    {% endfor %}
-                </form>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-dark" data-dismiss="modal">Не, назад :)</button>
-                <button form="edit_form" class="btn btn-dark" type="submit">Применить</button>
-            </div>
-        </div>
-    </div>
-</div>
+            <div class="modal fade" id="staticBackdrop" data-backdrop="static" tabindex="-1" role="dialog"
+                aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="staticBackdropLabel" style="font-size: 1.2rem;">Изменить тег <br>
+                                "{{ nbtag.title | title }}"</h5>
 
-<div class="tagdet__content pt-4 pl-4">
-    {% if nbtag.lines.all %}
-    <div class="tag_cards_wrapper">
-        {% for line in nbtag.lines.all %}
-        <a href="{{ line.get_absolute_url }}">
-            <div class="card text-center text-white bg-dark m-2" style="width: 20rem;">
-                <img class="card-img-top" src="{{ line.img.url }}" alt="No picture">
-                <div class="card-body">
-                    <p class="card-text"><a href="{{ line.get_absolute_url }}">{{line.head}}</a></p>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <form action="{{ nbtag.get_edit_url }}" enctype="multipart/form-data" method="POST" id="edit_form">
+                                {% csrf_token %}
+                                {% for f in form %}
+                                {% if f.errors %}
+                                <div class="alert alert-danger" role="alert">{{ f.errors }}</div>
+                                {% endif %}
+                                {{ f.label }}
+                                {{ f}}
+                                {% endfor %}
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-dark" data-dismiss="modal">Не, назад :)</button>
+                            <button form="edit_form" class="btn btn-dark" type="submit">Применить</button>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </a>
-        {% endfor %}
-    </div>
-    {% else %}
-    <h3 style="font-size: 1.2rem;">Связанных записей не найдено 😟</h3>
-    {% endif %}
+
+            <div class="tagdet__content pt-4">
+                {% if nbtag.lines.all %}
+                <div class="tag_cards_wrapper">
+                    {% for line in nbtag.lines.all %}
+                    <a href="{{ line.get_absolute_url }}">
+                        <div class="card text-center text-white bg-dark" style="width: 20rem;">
+                            <img class="card-img-top" src="{{ line.img.url }}" alt="No picture">
+                            <div class="card-body">
+                                <p class="card-text"><a href="{{ line.get_absolute_url }}">{{line.head}}</a></p>
+                            </div>
+                        </div>
+                    </a>
+                    {% endfor %}
+                </div>
+                {% else %}
+                <h3 style="font-size: 1.2rem;">Связанных записей не найдено 😟</h3>
+                {% endif %}
+            </div>
+        </div>
+     </div>
 </div>
 
 {% endblock %}

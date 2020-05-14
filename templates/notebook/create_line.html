@@ -15,26 +15,29 @@
 <link rel="stylesheet" href="{% static 'css/style_notebook_create.css' %}">
 
 
-<div class="createline__container">
-    <div class="col-sm-4">
+<div class="container">
+    <div class="row">
+        <div class="col-12">
 
-        <h2>Создание записи</h2>
+            <h2>Создание записи</h2>
 
-        <form action="{% url 'nb_line_create_url' %}" enctype="multipart/form-data" method="POST">
-            {% csrf_token %}
+            <form action="{% url 'nb_line_create_url' %}" enctype="multipart/form-data" method="POST">
+                {% csrf_token %}
 
-            {% for f in form %}
-                    {% if f.errors %}
-                        <div class="alert alert-danger" role="alert">{{ f.errors }}</div>
-                    {% endif %}
-                {{ f.label }}
-                {{ f }}
-            {% endfor %}
-            <button class="btn btn-dark btn-sm" type="submit">Добавить</button>
-            <a class="btn btn-dark btn-sm" href="{% url 'nb_tag_create_url' %}" role="button">Создать новый тег</a>
-            <a class="btn btn-dark btn-sm" href="{% url 'nb_lines_url' %}" role="button">Назад</a>
-
-        </form>
+                {% for f in form %}
+                        {% if f.errors %}
+                            <div class="alert alert-danger" role="alert">{{ f.errors }}</div>
+                        {% endif %}
+                    {{ f.label }}
+                    {{ f }}
+                {% endfor %}
+                <div class="buttons">
+                <button class="btn btn-dark btn-sm" type="submit">Добавить</button>
+                <a class="btn btn-dark btn-sm" href="{% url 'nb_tag_create_url' %}" role="button">Создать новый тег</a>
+                <a class="btn btn-dark btn-sm" href="{% url 'nb_lines_url' %}" role="button">Назад</a>
+                </div>
+            </form>
+        </div>
     </div>
 </div>
 

@@ -1,16 +1,4 @@
-.tags__h1 {
-    padding-top: 18%;
-    margin-left: 4.8%;
-}
-
-.tags__content {
-    margin-left: 1.8%;
-}
-
-.tags__content-col {
-    padding-top: 3%;
-}
-
+/*mobile*/
 .tags__content-links {
     margin-bottom: 1%;
     display: inline-block;
@@ -27,15 +15,13 @@
     text-shadow: 1px 1px 2px black, 0 0 1em rgb(18, 83, 43)
 }
 
+.col-12 {
+    margin: 20% auto;
+    max-width: 100%;
+}
+
 @media screen and (min-width: 996px) {
-    .tags__h1 a {
-        margin: 0%;
-        margin-top: 2%;
-    }
-    .tags__h1 {
-        padding-top: 2%;
-        margin-left: 2%;
-    }
+    /*desktop*/
     .pagination {
         margin-top: 4%
     }
@@ -49,5 +35,9 @@
         text-decoration: none;
         text-transform: lowercase;
         color: rgb(211, 211, 211);
+    }
+    .col-12 {
+        margin: 2% auto;
+        max-width: 40%;
     }
 }

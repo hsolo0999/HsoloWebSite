@@ -1,7 +1,4 @@
-.container {
-    padding-top: 17%;
-    margin-left: 1.8%;
-}
+/*decktop*/
 
 h3 {
     font-size: 1.2rem;
@@ -11,12 +8,13 @@ h3 {
     margin: 1%;
 }
 
-@media screen and (min-width: 996px) {
+.col-12 {
+    margin: 17% auto;
+    max-width: 100%;
+}
 
-    .container {
-        padding-top: 2%;
-        margin-left: 1.8%;
-    }
+@media screen and (min-width: 996px) {
+    /*mobile*/
 
     h3 {
         font-size: 1.2rem;
@@ -24,6 +22,11 @@ h3 {
 
     .btn {
         margin: 1%;
+    }
+
+    .col-12 {
+        margin: 2% auto;
+        max-width: 40%;
     }
 
 }

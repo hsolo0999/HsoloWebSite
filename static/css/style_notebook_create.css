@@ -1,26 +1,57 @@
-    .createline__container h2 {
-        margin-bottom: 5%;
-    }
+ /*mobile*/
+.col-12 {
+    margin: 17% auto;
+    max-width: 100%;
+}
+.form-control {
+    margin-bottom: 5%;
+    background-color: #363636;
+    color: #c0c0c0;
+    border: none;
+}
 
+.form-control:focus {
+    box-shadow: 0 0 10px 0 #038803;
+    transition: 0.5s;
+    background-color: #363636;
+    border: none;
+}
+.buttons {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    flex-direction: column;
+}
+
+.btn {
+    margin: 2% 0;
+}
+
+
+@media screen and (min-width: 996px) {
+    /*desktop*/
+    .col-12 {
+        margin: 2% auto;
+        max-width: 40%;
+    }
     .form-control {
         margin-bottom: 5%;
         background-color: #363636;
         color: #c0c0c0;
         border: none;
     }
-
+    
     .form-control:focus {
         box-shadow: 0 0 10px 0 #038803;
         transition: 0.5s;
         background-color: #363636;
         border: none;
     }
-
-    @media screen and (min-width: 996px) {
-
-        .createline__container {
-            margin: 2%;
-            margin-top: 4%;
-            padding: 0%;
-        }
+    .buttons {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        flex-direction: row;
     }
+
+}
